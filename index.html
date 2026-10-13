@@ -417,6 +417,246 @@ footer {
     <p>© 2026 Black Tech — Demonstração.</p>
   </div>
 </footer>
+<!-- ==========================================
+     FAGUNDES BARBER 2.0 — BLACK TECH
+     MELHORIAS DEMONSTRATIVAS
+========================================== -->
 
+<style>
+/* DIFERENCIAIS */
+
+.diferenciais {
+  background: #0b111c;
+}
+
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.diferencial {
+  padding: 30px;
+  background: #111b2b;
+  border: 1px solid #263750;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.diferencial:hover {
+  transform: translateY(-6px);
+  border-color: #1677ff;
+}
+
+.diferencial span {
+  font-size: 38px;
+}
+
+.diferencial h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.diferencial p {
+  color: #a3adbf;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* PERGUNTAS FREQUENTES */
+
+.faq {
+  background: #070a10;
+}
+
+.faq-lista {
+  max-width: 800px;
+  margin: auto;
+}
+
+.faq-item {
+  margin-bottom: 14px;
+  background: #101722;
+  border: 1px solid #263044;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  padding: 22px;
+  cursor: pointer;
+  font-weight: 700;
+  color: white;
+  list-style-position: inside;
+}
+
+.faq-item[open] {
+  border-color: #1677ff;
+}
+
+.faq-item p {
+  padding: 0 22px 22px;
+  margin: 0;
+  color: #a3adbf;
+  line-height: 1.8;
+}
+
+/* BOTÃO FLUTUANTE */
+
+.contato-flutuante {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  padding: 15px 22px;
+  background: #1677ff;
+  color: white;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(22,119,255,0.35);
+  transition: 0.3s;
+}
+
+.contato-flutuante:hover {
+  background: #075fd6;
+  transform: translateY(-4px);
+}
+
+/* ANIMAÇÕES */
+
+.revelar {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+
+.revelar.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 800px) {
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contato-flutuante {
+    bottom: 15px;
+    right: 15px;
+    padding: 13px 17px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revelar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Inserir novas seções antes do contato
+  const contato = document.getElementById("contato");
+
+  if (contato) {
+    contato.insertAdjacentHTML("beforebegin", `
+      <section class="diferenciais revelar" id="diferenciais">
+        <div class="container">
+          <div class="section-title">
+            <span class="tag">EXPERIÊNCIA</span>
+            <h2>POR QUE ESCOLHER UMA BARBEARIA?</h2>
+            <div class="line"></div>
+            <p>Exemplos de benefícios para apresentar neste conceito.</p>
+          </div>
+
+          <div class="diferenciais-grid">
+            <article class="diferencial">
+              <span>✂️</span>
+              <h3>ESTILO PERSONALIZADO</h3>
+              <p>Uma proposta de atendimento focada no estilo de cada cliente.</p>
+            </article>
+
+            <article class="diferencial">
+              <span>💈</span>
+              <h3>CUIDADO NOS DETALHES</h3>
+              <p>Uma experiência pensada para valorizar cada detalhe do visual.</p>
+            </article>
+
+            <article class="diferencial">
+              <span>📱</span>
+              <h3>CONTATO SIMPLIFICADO</h3>
+              <p>Acesso rápido às informações e ao canal de atendimento.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq revelar" id="faq">
+        <div class="container">
+          <div class="section-title">
+            <span class="tag">DÚVIDAS</span>
+            <h2>PERGUNTAS FREQUENTES</h2>
+            <div class="line"></div>
+            <p>Exemplos de perguntas para uma futura versão oficial.</p>
+          </div>
+
+          <div class="faq-lista">
+            <details class="faq-item">
+              <summary>Como funcionaria o agendamento?</summary>
+              <p>O cliente poderia acessar o WhatsApp da barbearia diretamente pelo site, após a integração ser autorizada.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Quais serviços poderiam aparecer no site?</summary>
+              <p>Os serviços e preços oficiais seriam cadastrados conforme as informações fornecidas pelo estabelecimento.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Onde ficariam as informações de localização?</summary>
+              <p>O endereço e os horários oficiais poderiam ser apresentados aqui, com um botão para abrir o mapa.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    `);
+  }
+
+  // Botão flutuante demonstrativo
+  const botao = document.createElement("a");
+  botao.href = "#contato";
+  botao.className = "contato-flutuante";
+  botao.textContent = "💈 Agendamento";
+  botao.setAttribute("aria-label", "Ver demonstração de agendamento");
+  document.body.appendChild(botao);
+
+  // Animações de entrada
+  const elementos = document.querySelectorAll(
+    ".card, .gallery img, .diferencial, .faq-item"
+  );
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entradas) => {
+      entradas.forEach(entrada => {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add("visivel");
+          observer.unobserve(entrada.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    elementos.forEach(elemento => {
+      elemento.classList.add("revelar");
+      observer.observe(elemento);
+    });
+  }
+
+});
+</script>
 </body>
 </html>
