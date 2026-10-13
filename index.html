@@ -1,1 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Fagundes Barber | Demonstração Black Tech</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #070a10;
+  --surface: #101722;
+  --blue: #1677ff;
+  --text: #f5f8ff;
+  --muted: #a3adbf;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7,10,16,.94);
+  border-bottom: 1px solid #263044;
+  backdrop-filter: blur(12px);
+}
+
+.nav {
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.logo span { color: var(--blue); }
+
+nav {
+  display: flex;
+  gap: 26px;
+}
+
+nav a {
+  color: #c4ccda;
+  font-size: 14px;
+  transition: .3s;
+}
+
+nav a:hover { color: var(--blue); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  background: var(--blue);
+  color: white;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #075fd6;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #54739f;
+}
+
+.btn-outline:hover { background: #172438; }
+
+.hero {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, #070a10 0%, rgba(7,10,16,.9) 45%, rgba(7,10,16,.45) 100%),
+    url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=85") center/cover;
+}
+
+.hero-content { max-width: 650px; }
+
+.tag {
+  display: inline-block;
+  color: #70aeff;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+h1, h2, h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(55px, 8vw, 105px);
+  line-height: .94;
+  margin: 0 0 25px;
+}
+
+h1 span { color: var(--blue); }
+
+.hero p {
+  color: #c0cad9;
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 510px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+section { padding: 100px 0; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: clamp(38px, 5vw, 60px);
+  margin: 10px 0;
+}
+
+.section-title p { color: var(--muted); }
+
+.line {
+  width: 65px;
+  height: 4px;
+  background: var(--blue);
+  margin: 20px auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid #263044;
+  border-radius: 14px;
+  padding: 35px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: var(--blue);
+}
+
+.card .icon { font-size: 38px; }
+
+.card h3 {
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: .4s;
+}
+
+.gallery img:hover { transform: scale(1.025); }
+
+.contact {
+  background: linear-gradient(135deg, #101c30, #070a10);
+  text-align: center;
+}
+
+.contact p {
+  color: var(--muted);
+  max-width: 570px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+}
+
+footer {
+  padding: 30px 0;
+  border-top: 1px solid #263044;
+  text-align: center;
+  color: #929cad;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.demo {
+  color: #9aacc5;
+  font-size: 12px;
+}
+
+@media(max-width: 800px) {
+  .grid, .gallery { grid-template-columns: 1fr; }
+
+  .nav { flex-wrap: wrap; padding: 18px 0; }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .hero { min-height: 560px; }
+
+  section { padding: 70px 0; }
+
+  .gallery img { height: 300px; }
+}
+
+@media(max-width: 480px) {
+  .hero { min-height: 520px; }
+  .hero p { font-size: 15px; }
+  .btn { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#inicio" class="logo">FAGUNDES<span> BARBER</span></a>
+
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-content">
+
+      <span class="tag">ESTILO • PRECISÃO • ATITUDE</span>
+
+      <h1>SEU ESTILO.<br><span>NOSSA ARTE.</span></h1>
+
+      <p>
+        Uma experiência de barbearia com personalidade,
+        cuidado e atenção aos detalhes.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contato" class="btn">CONHECER AGENDAMENTO</a>
+        <a href="#servicos" class="btn btn-outline">VER SERVIÇOS</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="container">
+
+    <div class="section-title">
+      <span class="tag">NOSSA PROPOSTA</span>
+      <h2>SERVIÇOS</h2>
+      <div class="line"></div>
+      <p>Exemplos de serviços para esta demonstração.</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">✂️</div>
+        <h3>Corte Masculino</h3>
+        <p>Um corte pensado para valorizar seu estilo.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🪒</div>
+        <h3>Barba</h3>
+        <p>Acabamento e cuidado para um visual impecável.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">💈</div>
+        <h3>Corte + Barba</h3>
+        <p>Uma combinação de cuidados em uma única visita.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="container">
+
+    <div class="section-title">
+      <span class="tag">INSPIRAÇÃO</span>
+      <h2>GALERIA DE ESTILOS</h2>
+      <div class="line"></div>
+      <p>Fotografias ilustrativas para apresentação do conceito.</p>
+    </div>
+
+    <div class="gallery">
+      <img
+        src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=80"
+        alt="Interior de barbearia — imagem ilustrativa"
+        loading="lazy"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=700&q=80"
+        alt="Serviço de barbearia — imagem ilustrativa"
+        loading="lazy"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=700&q=80"
+        alt="Corte masculino — imagem ilustrativa"
+        loading="lazy"
+      >
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="container">
+
+    <span class="tag">CONTATO</span>
+
+    <h2 style="font-size:clamp(38px,5vw,60px)">
+      PRONTO PARA UM NOVO VISUAL?
+    </h2>
+
+    <p>
+      Conheça uma proposta de agendamento simples e direto,
+      integrada ao WhatsApp da barbearia.
+    </p>
+
+    <a
+      href="#aviso"
+      class="btn"
+    >
+      AGENDAMENTO — DEMONSTRAÇÃO
+    </a>
+
+    <p style="margin-top:20px;font-size:12px">
+      A integração real com o WhatsApp poderá ser ativada
+      mediante autorização do estabelecimento.
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer id="aviso">
+  <div class="container">
+    <p class="demo">
+      Projeto conceitual independente desenvolvido pela Black Tech.
+      Não é o site oficial da Barbearia Fagundes.
+      Serviços e fotografias apresentados apenas para demonstração.
+    </p>
+
+    <p>© 2026 Black Tech — Demonstração.</p>
+  </div>
+</footer>
+
+</body>
+</html>
